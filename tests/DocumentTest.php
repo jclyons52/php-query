@@ -68,11 +68,19 @@ class DocumentTest extends \PHPUnit_Framework_TestCase
      */
     public function it_can_be_converted_to_string()
     {
-        $html = $this->stripWhitespaces($this->html);
+        $html = $this->html;
 
         $document = new Document($this->html);
 
-        $this->assertEquals($html, $this->stripWhitespaces($document->toString()));
+        $documentString = $document->toString();
+
+        $doc1 = new Document($html);
+        $doc1 = $doc1->toString();
+        $doc2 = new Document($documentString);
+        $doc2 = $doc2->toString();
+
+
+        $this->assertEquals($doc1, $doc2);
     }
 
     public function it_gets_attribute_from_element()
