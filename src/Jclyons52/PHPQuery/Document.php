@@ -4,7 +4,8 @@ namespace Jclyons52\PHPQuery;
 
 use Symfony\Component\CssSelector\CssSelectorConverter;
 
-class Document {
+class Document
+{
 
     private $dom;
 
@@ -43,7 +44,7 @@ class Document {
 
         $return = [];
 
-        for($i = 0; $i < $results->length; $i++){
+        for ($i = 0; $i < $results->length; $i++) {
             $node = new Node($results->item($i));
             array_push($return, $node);
         }
@@ -56,5 +57,4 @@ class Document {
         return $this->dom->saveHTML();
 
     }
-
 }
