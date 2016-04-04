@@ -83,11 +83,6 @@ class DocumentTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($doc1, $doc2);
     }
 
-    public function it_gets_attribute_from_element()
-    {
-
-    }
-
     protected function stripWhitespaces($string)
     {
         $search = array(

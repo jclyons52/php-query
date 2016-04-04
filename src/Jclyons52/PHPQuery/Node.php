@@ -4,7 +4,7 @@ namespace Jclyons52\PHPQuery;
 
 class Node
 {
-    private $node;
+    public $node;
 
     public function __construct(\DOMNode $node)
     {
@@ -14,5 +14,18 @@ class Node
     public function toString()
     {
         return $this->node->ownerDocument->saveHTML($this->node);
+    }
+
+    public function attr($name, $value = null)
+    {
+        if (!($this->node instanceof \DOMElement)) {
+            throw new \Exception('dom node is not of type element');
+        }
+
+        if ($value) {
+            $this->node->setAttribute($name, $value);
+        }
+        
+        return $this->node->getAttribute($name);
     }
 }
