@@ -15,7 +15,7 @@ PSRs you support to avoid any confusion with users and contributors.
 Via Composer
 
 ``` bash
-$ composer require jclyons52/PHPQuery
+$ composer require jclyons52/php-query
 ```
 
 ## Usage
@@ -52,18 +52,18 @@ If you discover any security related issues, please email jclyons52@gmail.com in
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
 
-[ico-version]: https://img.shields.io/packagist/v/jclyons52/PHPQuery.svg?style=flat-square
+[ico-version]: https://img.shields.io/packagist/v/jclyons52/php-query.svg?style=flat-square
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
 [ico-travis]: https://img.shields.io/travis/jclyons52/PHPQuery/master.svg?style=flat-square
 [ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/jclyons52/PHPQuery.svg?style=flat-square
 [ico-code-quality]: https://img.shields.io/scrutinizer/g/jclyons52/PHPQuery.svg?style=flat-square
-[ico-downloads]: https://img.shields.io/packagist/dt/jclyons52/PHPQuery.svg?style=flat-square
+[ico-downloads]: https://img.shields.io/packagist/dt/jclyons52/php-query.svg?style=flat-square
 
-[link-packagist]: https://packagist.org/packages/jclyons52/PHPQuery
+[link-packagist]: https://packagist.org/packages/jclyons52/php-query
 [link-travis]: https://travis-ci.org/jclyons52/PHPQuery
 [link-scrutinizer]: https://scrutinizer-ci.com/g/jclyons52/PHPQuery/code-structure
 [link-code-quality]: https://scrutinizer-ci.com/g/jclyons52/PHPQuery
-[link-downloads]: https://packagist.org/packages/jclyons52/PHPQuery
+[link-downloads]: https://packagist.org/packages/jclyons52/php-query
 [link-author]: https://github.com/jclyons52
 [link-contributors]: ../../contributors
 
