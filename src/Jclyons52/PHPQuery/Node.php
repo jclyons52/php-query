@@ -28,4 +28,14 @@ class Node
         
         return $this->node->getAttribute($name);
     }
+
+    public function text()
+    {
+        return $this->node->textContent;
+    }
+
+    public function remove()
+    {
+        $this->node->parentNode->removeChild($this->node);
+    }
 }

@@ -7,6 +7,8 @@ class NodeTest extends PHPUnit_Framework_TestCase
 {
     protected $node;
 
+    protected $document;
+
     public function setUp()
     {
 
@@ -20,13 +22,15 @@ class NodeTest extends PHPUnit_Framework_TestCase
             <body>
             <div class="row">
                 <div class="col-sm-3" id="div-1" style="color: blue; display: none;"> First Div </div>
+                <div class="col-sm-3" id="div-2"> Second Div </div>
+                <div class="col-sm-3" id="div-3"> Third Div </div>
             </div>
             </body>
             </html>';
 
-        $document = new Document($this->html);
+        $this->document = new Document($this->html);
 
-        $this->node = $document->querySelector('.col-sm-3');
+        $this->node = $this->document->querySelector('.col-sm-3');
     }
 
     /**
@@ -59,5 +63,27 @@ class NodeTest extends PHPUnit_Framework_TestCase
         $this->setExpectedException(\Exception::class);
 
         $styleNode->attr('styles');
+    }
+
+    /**
+     * @test
+     */
+    public function it_gets_the_text_from_an_element()
+    {
+        $text = $this->node->text();
+
+        $this->assertEquals(' First Div ', $text);
+    }
+
+    /**
+     * @test
+     */
+    public function it_removes_element_from_the_dom()
+    {
+        $this->node->remove();
+
+        $elements = $this->document->querySelectorAll('.col-sm-3');
+
+        $this->assertEquals(2, count($elements));
     }
 }

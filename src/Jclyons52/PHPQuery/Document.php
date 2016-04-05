@@ -15,8 +15,6 @@ class Document
     {
         $this->dom = new \DOMDocument();
 
-//        $this->dom->registerNodeClass('DOMElement', Node::class);
-
         $this->dom->loadHtml($html);
 
         $this->xpath = new \DOMXPath($this->dom);
