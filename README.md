@@ -7,8 +7,11 @@
 [![Quality Score][ico-code-quality]][link-code-quality]
 [![Total Downloads][ico-downloads]][link-downloads]
 
-This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what
-PSRs you support to avoid any confusion with users and contributors.
+Nobody really wants to do imperative dom manipulation on the back end, but sometimes you have to. 
+Given that you've probably done a lot of dom manipulation in javascript, maybe it would be nice to use the same api on the back end.
+Use cases for this project include:
+- DOM Crawlers
+- Integration testing
 
 ## Install
 
@@ -21,10 +24,17 @@ $ composer require jclyons52/php-query
 ## Usage
 
 ``` php
-$skeleton = new League\Skeleton();
-echo $skeleton->echoPhrase('Hello, League!');
-```
+$html = <div class="row">
+            <div class="col-sm-3" id="div-1"> First Div </div>
+            <div class="col-sm-3" id="div-2"> Second Div </div>
+            <div class="col-sm-3" id="div-3"> Third Div </div>
+        </div>';
+$dom = new jclyons52\Document($html);
 
+$elements = $this->document->querySelectorAll('.col-sm-3');
+
+echo $elements[0]->toString(); // '<div class="col-sm-3" id="div-1"> First Div </div>'
+```
 ## Change log
 
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
