@@ -31,7 +31,7 @@ class Node
             throw new \Exception('dom node is not of type element');
         }
 
-        if ($value) {
+        if ($value !== null) {
             $this->node->setAttribute($name, $value);
         }
         
