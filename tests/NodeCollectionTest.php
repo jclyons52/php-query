@@ -64,4 +64,28 @@ class NodeCollectionTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals('display: block;', $newStyles[0]);
     }
+
+    /**
+     * @test
+     */
+    public function it_can_use_standard_array_methods()
+    {
+        $nodes = $this->document->querySelectorAll('.col-sm-3');
+
+        $keys = $nodes->array_keys();
+
+        $this->assertEquals([0,1,2], $keys);
+    }
+
+    /**
+     * @test
+     */
+    public function it_doesnt_try_to_magically_call_methods_not_beginning_with_array()
+    {
+        $nodes = $this->document->querySelectorAll('.col-sm-3');
+
+        $this->setExpectedException(\BadMethodCallException::class);
+
+        $nodes->keys();
+    }
 }
