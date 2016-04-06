@@ -38,4 +38,11 @@ class Node
     {
         $this->node->parentNode->removeChild($this->node);
     }
+
+    public function hasClass($class)
+    {
+        $classes = explode(' ', $this->attr('class'));
+
+        return in_array($class, $classes);
+    }
 }

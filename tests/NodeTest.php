@@ -21,9 +21,9 @@ class NodeTest extends PHPUnit_Framework_TestCase
             </head>
             <body>
             <div class="row">
-                <div class="col-sm-3" id="div-1" style="color: blue; display: none;"> First Div </div>
-                <div class="col-sm-3" id="div-2"> Second Div </div>
-                <div class="col-sm-3" id="div-3"> Third Div </div>
+                <div class="col-sm-3 first" id="div-1" style="color: blue; display: none;"> First Div </div>
+                <div class="col-sm-3 second" id="div-2"> Second Div </div>
+                <div class="col-sm-3 third" id="div-3" data-last-value="43" data-hidden="true" data-options=\'{"name":"John"}\'> Third Div </div>
             </div>
             </body>
             </html>';
@@ -85,5 +85,13 @@ class NodeTest extends PHPUnit_Framework_TestCase
         $elements = $this->document->querySelectorAll('.col-sm-3');
 
         $this->assertEquals(2, count($elements));
+    }
+
+    /**
+     * @test
+     */
+    public function it_checks_if_item_has_class()
+    {
+        $this->assertTrue($this->node->hasClass('first'));
     }
 }

@@ -2,6 +2,7 @@
 
 namespace Jclyons52\PHPQuery;
 
+use Jclyons52\PHPQuery\Support\NodeCollection;
 use Symfony\Component\CssSelector\CssSelectorConverter;
 
 class Document
@@ -40,11 +41,11 @@ class Document
 
         $results = $this->xpath->query($xpathQuery);
 
-        $return = [];
+        $return = new NodeCollection();
 
         for ($i = 0; $i < $results->length; $i++) {
             $node = new Node($results->item($i));
-            array_push($return, $node);
+            $return->append($node);
         }
 
         return $return;
