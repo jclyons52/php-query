@@ -21,6 +21,10 @@ class Document
         $this->xpath = new \DOMXPath($this->dom);
     }
 
+    /**
+     * @param string $selector
+     * @return Node
+     */
     public function querySelector($selector)
     {
         $converter = new CssSelectorConverter();
@@ -33,6 +37,10 @@ class Document
 
     }
 
+    /**
+     * @param string $selector
+     * @return NodeCollection
+     */
     public function querySelectorAll($selector)
     {
         $converter = new CssSelectorConverter();
@@ -51,6 +59,9 @@ class Document
         return $return;
     }
 
+    /**
+     * @return string
+     */
     public function toString()
     {
         return $this->dom->saveHTML();

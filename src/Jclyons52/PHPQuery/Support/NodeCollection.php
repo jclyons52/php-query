@@ -20,6 +20,9 @@ class NodeCollection extends \ArrayObject
         return call_user_func_array($func, array_merge(array($this->getArrayCopy()), $argv));
     }
 
+    /**
+     * @return array
+     */
     public function text()
     {
         $text = [];
@@ -31,6 +34,11 @@ class NodeCollection extends \ArrayObject
         return $text;
     }
 
+    /**
+     * @param string $name
+     * @param string|null $value
+     * @return array
+     */
     public function attr($name, $value = null)
     {
         $attr = [];
