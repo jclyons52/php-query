@@ -45,8 +45,7 @@ class Node
     {
         return $this->node->textContent;
     }
-
-
+    
     /**
      *
      */
