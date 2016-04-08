@@ -14,6 +14,8 @@ class Document
 
     public function __construct($html)
     {
+        libxml_use_internal_errors(true);
+
         $this->dom = new \DOMDocument();
 
         $this->dom->loadHtml($html);
@@ -33,6 +35,9 @@ class Document
 
         $result = $this->xpath->query($xpathQuery);
 
+        if (!$result->item(0)) {
+            return null;
+        }
         return new Node($result->item(0));
 
     }
@@ -48,6 +53,10 @@ class Document
         $xpathQuery = $converter->toXPath($selector);
 
         $results = $this->xpath->query($xpathQuery);
+
+        if (!$results->item(0)) {
+            return [];
+        }
 
         $return = new NodeCollection();
 

@@ -43,12 +43,31 @@ class DocumentTest extends \PHPUnit_Framework_TestCase
     /**
      * @test
      */
+    public function it_returns_null_if_no_element_is_found()
+    {
+        $element = $this->document->querySelector('.foo-bar-foo');
+
+        $this->assertEquals(null , $element);
+    }
+
+    /**
+     * @test
+     */
     public function it_finds_all_elements_by_class()
     {
         $elements = $this->document->querySelectorAll('.col-sm-3');
 
         $this->assertEquals(3, count($elements));
+    }
 
+    /**
+     * @test
+     */
+    public function it_returns_empty_array_if_no_element_is_found()
+    {
+        $element = $this->document->querySelectorAll('.foo-bar-foo');
+
+        $this->assertEquals([] , $element);
     }
 
     /**
