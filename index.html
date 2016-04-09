@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Php-query by jclyons52</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Php-query</h1>
+      <h2 class="project-tagline">jQuery / javascript api for html document manipulation in php</h2>
+      <a href="https://github.com/jclyons52/php-query" class="btn">View on GitHub</a>
+      <a href="https://github.com/jclyons52/php-query/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/jclyons52/php-query/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="phpquery" class="anchor" href="#phpquery" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>PHPQuery</h1>
+
+<p><a href="https://packagist.org/packages/jclyons52/php-query"><img src="https://img.shields.io/packagist/v/jclyons52/php-query.svg?style=flat-square" alt="Latest Version on Packagist"></a>
+<a href="LICENSE.md"><img src="https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square" alt="Software License"></a>
+<a href="https://travis-ci.org/jclyons52/PHPQuery"><img src="https://img.shields.io/travis/jclyons52/PHPQuery/master.svg?style=flat-square" alt="Build Status"></a>
+<a href="https://scrutinizer-ci.com/g/jclyons52/PHPQuery/code-structure"><img src="https://img.shields.io/scrutinizer/coverage/g/jclyons52/PHPQuery.svg?style=flat-square" alt="Coverage Status"></a>
+<a href="https://scrutinizer-ci.com/g/jclyons52/PHPQuery"><img src="https://img.shields.io/scrutinizer/g/jclyons52/PHPQuery.svg?style=flat-square" alt="Quality Score"></a>
+<a href="https://packagist.org/packages/jclyons52/php-query"><img src="https://img.shields.io/packagist/dt/jclyons52/php-query.svg?style=flat-square" alt="Total Downloads"></a></p>
+
+<p>Nobody really wants to do imperative dom manipulation on the back end, but sometimes you have to. 
+Given that you've probably done a lot of dom manipulation in javascript, maybe it would be nice to use the same api on the back end.
+Use cases for this project include:</p>
+
+<ul>
+<li>DOM Crawlers</li>
+<li>Integration testing</li>
+</ul>
+
+<h2>
+<a id="install" class="anchor" href="#install" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Install</h2>
+
+<p>Via Composer</p>
+
+<div class="highlight highlight-source-shell"><pre>$ composer require jclyons52/php-query</pre></div>
+
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h2>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$html</span> <span class="pl-k">=</span> <span class="pl-k">&lt;</span><span class="pl-c1">div</span> <span class="pl-k">class</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>row<span class="pl-pds">"</span></span><span class="pl-k">&gt;</span></span>
+<span class="pl-s1">            <span class="pl-k">&lt;</span><span class="pl-c1">div</span> <span class="pl-k">class</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>col-sm-3<span class="pl-pds">"</span></span> <span class="pl-c1">id</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>div-1<span class="pl-pds">"</span></span><span class="pl-k">&gt;</span> <span class="pl-c1">First</span> <span class="pl-c1">Div</span> <span class="pl-k">&lt;</span><span class="pl-k">/</span><span class="pl-c1">div</span><span class="pl-k">&gt;</span></span>
+<span class="pl-s1">            <span class="pl-k">&lt;</span><span class="pl-c1">div</span> <span class="pl-k">class</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>col-sm-3<span class="pl-pds">"</span></span> <span class="pl-c1">id</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>div-2<span class="pl-pds">"</span></span><span class="pl-k">&gt;</span> <span class="pl-c1">Second</span> <span class="pl-c1">Div</span> <span class="pl-k">&lt;</span><span class="pl-k">/</span><span class="pl-c1">div</span><span class="pl-k">&gt;</span></span>
+<span class="pl-s1">            <span class="pl-k">&lt;</span><span class="pl-c1">div</span> <span class="pl-k">class</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>col-sm-3<span class="pl-pds">"</span></span> <span class="pl-c1">id</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>div-3<span class="pl-pds">"</span></span><span class="pl-k">&gt;</span> <span class="pl-c1">Third</span> <span class="pl-c1">Div</span> <span class="pl-k">&lt;</span><span class="pl-k">/</span><span class="pl-c1">div</span><span class="pl-k">&gt;</span></span>
+<span class="pl-s1">        <span class="pl-k">&lt;</span><span class="pl-k">/</span><span class="pl-c1">div</span><span class="pl-k">&gt;</span><span class="pl-s"><span class="pl-pds">'</span>;</span></span>
+<span class="pl-s1"><span class="pl-s">$dom = new jclyons52\Document($html);</span></span>
+<span class="pl-s1"><span class="pl-s"></span></span>
+<span class="pl-s1"><span class="pl-s">$elements = $this-&gt;document-&gt;querySelectorAll(<span class="pl-pds">'</span></span><span class="pl-k">.</span><span class="pl-c1">col</span><span class="pl-k">-</span><span class="pl-c1">sm</span><span class="pl-k">-</span><span class="pl-c1">3</span><span class="pl-s"><span class="pl-pds">'</span>);</span></span>
+<span class="pl-s1"><span class="pl-s"></span></span>
+<span class="pl-s1"><span class="pl-s">echo $elements[0]-&gt;toString(); // <span class="pl-pds">'</span></span><span class="pl-k">&lt;</span><span class="pl-c1">div</span> <span class="pl-k">class</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>col-sm-3<span class="pl-pds">"</span></span> <span class="pl-c1">id</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>div-1<span class="pl-pds">"</span></span><span class="pl-k">&gt;</span> <span class="pl-c1">First</span> <span class="pl-c1">Div</span> <span class="pl-k">&lt;</span><span class="pl-k">/</span><span class="pl-c1">div</span><span class="pl-k">&gt;</span><span class="pl-s"><span class="pl-pds">'</span></span></span></pre></div>
+
+<h2>
+<a id="change-log" class="anchor" href="#change-log" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Change log</h2>
+
+<p>Please see <a href="CHANGELOG.md">CHANGELOG</a> for more information what has changed recently.</p>
+
+<h2>
+<a id="testing" class="anchor" href="#testing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Testing</h2>
+
+<div class="highlight highlight-source-shell"><pre>$ composer <span class="pl-c1">test</span></pre></div>
+
+<h2>
+<a id="contributing" class="anchor" href="#contributing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contributing</h2>
+
+<p>Please see <a href="CONTRIBUTING.md">CONTRIBUTING</a> and <a href="CONDUCT.md">CONDUCT</a> for details.</p>
+
+<h2>
+<a id="security" class="anchor" href="#security" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Security</h2>
+
+<p>If you discover any security related issues, please email <a href="mailto:jclyons52@gmail.com">jclyons52@gmail.com</a> instead of using the issue tracker.</p>
+
+<h2>
+<a id="credits" class="anchor" href="#credits" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Credits</h2>
+
+<ul>
+<li><a href="https://github.com/jclyons52">Joseph Lyons</a></li>
+<li><a href="../../contributors">All Contributors</a></li>
+</ul>
+
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h2>
+
+<p>The MIT License (MIT). Please see <a href="LICENSE.md">License File</a> for more information.</p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/jclyons52/php-query">Php-query</a> is maintained by <a href="https://github.com/jclyons52">jclyons52</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
