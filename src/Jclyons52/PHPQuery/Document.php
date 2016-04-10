@@ -24,6 +24,7 @@ class Document
     }
 
     /**
+     * select single element from dom using css style selectors
      * @param string $selector
      * @return Node
      */
@@ -43,6 +44,7 @@ class Document
     }
 
     /**
+     * select multiple elements from dom using css style selectors
      * @param string $selector
      * @return NodeCollection
      */
@@ -69,6 +71,7 @@ class Document
     }
 
     /**
+     * Converts DOM to string
      * @return string
      */
     public function toString()

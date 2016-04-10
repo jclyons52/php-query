@@ -12,6 +12,7 @@ Given that you've probably done a lot of dom manipulation in javascript, maybe i
 Use cases for this project include:
 - DOM Crawlers
 - Integration testing
+- [Link previews](https://github.com/jclyons52/page-preview)
 
 ## Install
 
@@ -33,8 +34,19 @@ $dom = new jclyons52\Document($html);
 
 $elements = $this->document->querySelectorAll('.col-sm-3');
 
-echo $elements[0]->toString(); // '<div class="col-sm-3" id="div-1"> First Div </div>'
+$element = $elements[0];
+
+$element->attr('styles', 'display: block;');
+
+echo $element->attr('styles'); // 'display: block'
+
+echo $element->text(); // 'First Div'
+
+echo $element->hasClass('col-sm-3); // true
+
+echo $element->toString(); // '<div class="col-sm-3" id="div-1"> First Div </div>'
 ```
+
 ## Change log
 
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
