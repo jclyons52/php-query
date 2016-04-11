@@ -42,7 +42,7 @@ echo $element->text(); // 'First Div'
 
 echo $element->hasClass('col-sm-3); // true
 
-$div3->css(); // ["color" => "blue", "display" => "none"];
+$element->css(); // ["color" => "blue", "display" => "none"];
 
 $div3 = $this->document->querySelectorAll('.col-sm-3')[2];
 
