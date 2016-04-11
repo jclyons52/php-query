@@ -100,7 +100,39 @@ class Node
      * @return mixed
      * @throws \Exception
      */
-    public function data()
+    public function data($key = null, $value = null)
+    {
+        if ($key !== null && $value !== null) {
+            return $this->attr("data-{$key}", $value);
+        }
+        if ($key !== null) {
+            return $this->attr("data-{$key}");
+        }
+        $dataAttributes = $this->getDataAttributeNames();
+
+        foreach ($dataAttributes as $attribute) {
+            $return[$attribute] = $this->attr("data-{$attribute}");
+        }
+        return $return;
+    }
+
+    /**
+     * @param $result
+     * @return string
+     */
+    private function arrayToCss($result)
+    {
+        $css = '';
+        foreach ($result as $key => $value) {
+            $css .= "{$key}:{$value};";
+        }
+        return $css;
+    }
+
+    /**
+     * @return mixed
+     */
+    private function getDataAttributeNames()
     {
         $re = "/data-([A-Za-z0-9-]+)=/";
         $str = $this->toString();
@@ -109,17 +141,6 @@ class Node
 
         $dataAttributes = $matches[1];
 
-        foreach ($dataAttributes as $attribute) {
-            $return[$attribute] = $this->attr("data-{$attribute}");
-        }
-        return $return;
-    }
-    private function arrayToCss($result)
-    {
-        $css = '';
-        foreach ($result as $key => $value) {
-            $css .= "{$key}:{$value};";
-        }
-        return $css;
+        return $dataAttributes;
     }
 }

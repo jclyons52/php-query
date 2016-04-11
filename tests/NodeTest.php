@@ -126,5 +126,27 @@ class NodeTest extends PHPUnit_Framework_TestCase
         
         $this->assertEquals($expected, $data);
     }
+
+    /**
+     * @test
+     */
+    public function it_returns_the_value_of_a_data_property()
+    {
+        $node = $this->document->querySelectorAll('.col-sm-3')[2];
+        $data = $node->data("last-value");
+
+        $this->assertEquals("43", $data);
+    }
+
+    /**
+     * @test
+     */
+    public function it_sets_the_value_of_a_data_property()
+    {
+        $node = $this->document->querySelectorAll('.col-sm-3')[2];
+        $data = $node->data("last-value", 27);
+
+        $this->assertEquals("27", $data);
+    }
 }
 
