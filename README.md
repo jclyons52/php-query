@@ -28,13 +28,11 @@ $ composer require jclyons52/php-query
 $html = <div class="row">
             <div class="col-sm-3" id="div-1"> First Div </div>
             <div class="col-sm-3" id="div-2"> Second Div </div>
-            <div class="col-sm-3" id="div-3"> Third Div </div>
+            <div class="col-sm-3 third" id="div-3" data-last-value="43" data-hidden="true" data-options='{"name":"John"}'> Third Div </div>
         </div>';
 $dom = new jclyons52\Document($html);
 
-$elements = $this->document->querySelectorAll('.col-sm-3');
-
-$element = $elements[0];
+$elements = $dom->querySelector('.col-sm-3');
 
 $element->attr('styles', 'display: block;');
 
@@ -43,6 +41,12 @@ echo $element->attr('styles'); // 'display: block'
 echo $element->text(); // 'First Div'
 
 echo $element->hasClass('col-sm-3); // true
+
+$div3->css(); // ["color" => "blue", "display" => "none"];
+
+$div3 = $this->document->querySelectorAll('.col-sm-3')[2];
+
+$div3->data(); // ["last-value" => 43, "hidden" => true, "options" => '{"name":"John"}']
 
 echo $element->toString(); // '<div class="col-sm-3" id="div-1"> First Div </div>'
 ```
@@ -76,7 +80,7 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 
 [ico-version]: https://img.shields.io/packagist/v/jclyons52/php-query.svg?style=flat-square
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
-[ico-travis]: https://img.shields.io/travis/jclyons52/PHPQuery/master.svg?style=flat-square
+[ico-travis]: https://img.shields.io/travis/jclyons52/php-query/master.svg?style=flat-square
 [ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/jclyons52/PHPQuery.svg?style=flat-square
 [ico-code-quality]: https://img.shields.io/scrutinizer/g/jclyons52/PHPQuery.svg?style=flat-square
 [ico-downloads]: https://img.shields.io/packagist/dt/jclyons52/php-query.svg?style=flat-square

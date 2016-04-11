@@ -66,6 +66,11 @@ class Node
         return in_array($class, $classes);
     }
 
+    /**
+     * @param array $styles
+     * @return mixed
+     * @throws \Exception
+     */
     public function css($styles = [])
     {
         $css = $this->attr("style");
@@ -91,6 +96,10 @@ class Node
         return $result;
     }
 
+    /**
+     * @return mixed
+     * @throws \Exception
+     */
     public function data()
     {
         $re = "/data-([A-Za-z0-9-]+)=/";
