@@ -94,4 +94,37 @@ class NodeTest extends PHPUnit_Framework_TestCase
     {
         $this->assertTrue($this->node->hasClass('first'));
     }
+
+    /**
+     * @test
+     */
+    public function it_gets_css_as_associative_array()
+    {
+        $css = $this->node->css();
+
+        $this->assertEquals(["color" => "blue", "display" => "none"], $css);
+    }
+
+    /**
+     * @test
+     */
+    public function it_sets_css_with_associative_array()
+    {
+        $css = $this->node->css(["display" => "block", "font-family" => "Helvetica"]);
+
+        $this->assertEquals(["color" => "blue", "display" => "block", "font-family" => "Helvetica"], $css);
+    }
+    
+    /**
+     * @test
+     */
+    public function it_gets_the_dataset()
+    {
+        $node = $this->document->querySelectorAll('.col-sm-3')[2];
+        $data = $node->data();
+        $expected = ["last-value" => "43", "hidden" => "true", "options" => '{"name":"John"}'];
+        
+        $this->assertEquals($expected, $data);
+    }
 }
+

@@ -82,7 +82,7 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 [ico-downloads]: https://img.shields.io/packagist/dt/jclyons52/php-query.svg?style=flat-square
 
 [link-packagist]: https://packagist.org/packages/jclyons52/php-query
-[link-travis]: https://travis-ci.org/jclyons52/PHPQuery
+[link-travis]: https://travis-ci.org/jclyons52/php-query
 [link-scrutinizer]: https://scrutinizer-ci.com/g/jclyons52/PHPQuery/code-structure
 [link-code-quality]: https://scrutinizer-ci.com/g/jclyons52/PHPQuery
 [link-downloads]: https://packagist.org/packages/jclyons52/php-query

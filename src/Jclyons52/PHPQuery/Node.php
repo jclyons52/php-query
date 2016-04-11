@@ -34,7 +34,7 @@ class Node
         if ($value !== null) {
             $this->node->setAttribute($name, $value);
         }
-        
+
         return $this->node->getAttribute($name);
     }
 
@@ -45,7 +45,7 @@ class Node
     {
         return $this->node->textContent;
     }
-    
+
     /**
      *
      */
@@ -64,5 +64,53 @@ class Node
         $classes = explode(' ', $this->attr('class'));
 
         return in_array($class, $classes);
+    }
+
+    public function css($styles = [])
+    {
+        $css = $this->attr("style");
+
+        $css = explode(";", $css);
+
+        foreach ($css as $style) {
+            $split = explode(':', $style);
+            
+            if (count($split) < 2) {
+                continue;
+            }
+            
+            $split = array_map('trim', $split);
+            
+            $result[$split[0]] = $split[1];
+        }
+        if ($styles !== []) {
+            $result = array_merge($result, $styles);
+            $this->attr("style", $this->arrayToCss($result));
+        }
+
+        return $result;
+    }
+
+    public function data()
+    {
+        $re = "/data-([A-Za-z0-9-]+)=/";
+        $str = $this->toString();
+
+        preg_match_all($re, $str, $matches);
+
+        $dataAttributes = $matches[1];
+
+        foreach ($dataAttributes as $attribute) {
+            $return[$attribute] = $this->attr("data-{$attribute}");
+        }
+        return $return;
+    }
+    private function arrayToCss($result)
+    {
+        $css = '';
+        foreach ($result as $key => $value) {
+            $css .= "{$key}:{$value};";
+        }
+        return $css;
     }
 }
