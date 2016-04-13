@@ -44,7 +44,7 @@ echo $element->hasClass('col-sm-3); // true
 
 $element->css(); // ["color" => "blue", "display" => "none"];
 
-$div3 = $this->document->querySelectorAll('.col-sm-3')[2];
+$div3 = $dom->querySelectorAll('.col-sm-3')[2];
 
 $div3->data(); // ["last-value" => 43, "hidden" => true, "options" => '{"name":"John"}']
 
