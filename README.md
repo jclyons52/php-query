@@ -19,7 +19,7 @@ Use cases for this project include:
 Via Composer
 
 ``` bash
-$ composer require jclyons52/php-query
+composer require jclyons52/php-query
 ```
 
 ## Usage
@@ -30,7 +30,8 @@ $html = <div class="row">
             <div class="col-sm-3" id="div-2"> Second Div </div>
             <div class="col-sm-3 third" id="div-3" data-last-value="43" data-hidden="true" data-options='{"name":"John"}'> Third Div </div>
         </div>';
-$dom = new jclyons52\Document($html);
+
+$dom = new Jclyons52\PHPQuery\Document($html);
 
 $elements = $dom->querySelector('.col-sm-3');
 
