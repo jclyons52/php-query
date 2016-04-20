@@ -148,5 +148,13 @@ class NodeTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals("27", $data);
     }
+
+    /**
+     * @test
+     */
+    public function it_gets_the_parent_node()
+    {
+        $this->assertTrue($this->node->parent()->hasClass('row'));
+    }
 }
 

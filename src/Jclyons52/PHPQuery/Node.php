@@ -143,4 +143,9 @@ class Node
 
         return $dataAttributes;
     }
+
+    public function parent()
+    {
+        return new self($this->node->parentNode);
+    }
 }
