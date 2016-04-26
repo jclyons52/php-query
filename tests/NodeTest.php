@@ -2,6 +2,7 @@
 
 use Jclyons52\PHPQuery\Document;
 use Jclyons52\PHPQuery\Node;
+use Jclyons52\PHPQuery\Support\NodeCollection;
 
 class NodeTest extends PHPUnit_Framework_TestCase
 {
@@ -155,6 +156,18 @@ class NodeTest extends PHPUnit_Framework_TestCase
     public function it_gets_the_parent_node()
     {
         $this->assertTrue($this->node->parent()->hasClass('row'));
+    }
+
+    /**
+     * @test
+     */
+    public function it_gets_the_inner_html_of_node()
+    {
+        $innerHtml = $this->document->querySelector('.row')->html();
+
+        $this->assertInstanceOf(NodeCollection::class, $innerHtml);
+
+        $this->assertEquals(3, $innerHtml->count());
     }
 }
 

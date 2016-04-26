@@ -2,6 +2,8 @@
 
 namespace Jclyons52\PHPQuery;
 
+use Jclyons52\PHPQuery\Support\NodeCollection;
+
 class Node
 {
     public $node;
@@ -147,5 +149,19 @@ class Node
     public function parent()
     {
         return new self($this->node->parentNode);
+    }
+
+    public function html()
+    {
+        $children = $this->node->childNodes;
+
+        $results = new NodeCollection();
+
+        foreach ($children as $child) {
+            if ($child instanceof \DOMElement) {
+                $results[] = new Node($child);
+            }
+        }
+        return $results;
     }
 }
