@@ -7,6 +7,7 @@ use Symfony\Component\CssSelector\CssSelectorConverter;
 
 class Document
 {
+    use AjaxTrait;
 
     private $dom;
 
@@ -21,6 +22,17 @@ class Document
         $this->dom->loadHtml($html);
 
         $this->xpath = new \DOMXPath($this->dom);
+    }
+
+    public function __invoke($selector)
+    {
+        $nodes = $this->querySelectorAll($selector);
+
+        if (count($nodes) === 1) {
+            return $nodes[0];
+        }
+
+        return $nodes;
     }
 
     /**

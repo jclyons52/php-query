@@ -1,6 +1,7 @@
 <?php
 
 use Jclyons52\PHPQuery\Document;
+use Jclyons52\PHPQuery\Node;
 
 class DocumentTest extends \PHPUnit_Framework_TestCase
 {
@@ -95,5 +96,29 @@ class DocumentTest extends \PHPUnit_Framework_TestCase
         $doc2 = $doc2->toString();
 
         $this->assertEquals($doc1, $doc2);
+    }
+
+    /**
+     * @test
+     */
+    public function it_calls_querySelectorAll_when_invoked()
+    {
+        $pQuery = new Document($this->html);
+
+        $elements = $pQuery('.col-sm-3');
+
+        $this->assertEquals(3, count($elements));
+    }
+    
+    /**
+     * @test
+     */
+    public function it_returns_element_if_only_one_match_is_found()
+    {
+        $pQuery = new Document($this->html);
+
+        $element = $pQuery('title');
+        
+        $this->assertInstanceOf(Node::class, $element);
     }
 }
