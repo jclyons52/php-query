@@ -52,7 +52,6 @@ class Document
             return null;
         }
         return new Node($result->item(0));
-
     }
 
     /**
@@ -89,6 +88,5 @@ class Document
     public function toString()
     {
         return $this->dom->saveHTML();
-
     }
 }
